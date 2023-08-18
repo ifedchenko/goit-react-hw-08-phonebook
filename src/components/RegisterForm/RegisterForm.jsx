@@ -6,15 +6,17 @@ import css from './RegisterForm.module.css';
 export const RegisterForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
-    e.preventDefault();
+  const handleSubmit = evt => {
+    evt.preventDefault();
+    const form = evt.currentTarget;
 
-    const form = e.currentTarget;
-    const name = form.elements.name.value;
-    const email = form.elements.email.value;
-    const password = form.elements.password.value;
-
-    dispatch(register({ name, email, password }));
+    dispatch(
+      register({
+        name: form.elements.name.value,
+        email: form.elements.email.value,
+        password: form.elements.password.value,
+      })
+    );
     // .then(() => {
     //   Notiflix.Notify.success(`Thank you "${name}" for registration`);
     //   form.reset();
