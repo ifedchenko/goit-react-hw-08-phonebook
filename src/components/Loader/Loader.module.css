@@ -1,0 +1,9 @@
+.Spinner {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+.SpinnerButton {
+  display: flex;
+  justify-content: center;
+}
