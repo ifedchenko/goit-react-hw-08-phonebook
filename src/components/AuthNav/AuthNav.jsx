@@ -8,9 +8,6 @@ export const AuthNav = () => {
       <NavLink className={css.link} to="/register">
         <Button variant="contained">Register</Button>
       </NavLink>
-      {/* <Button to="/register" variant="contained">
-        Register
-      </Button> */}
       <NavLink className={css.link} to="/login">
         <Button variant="contained">Log In</Button>
       </NavLink>
