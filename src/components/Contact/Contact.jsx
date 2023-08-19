@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Notiflix from 'notiflix';
 import { deleteContact, fetchContacts } from '../../redux/operations';
 import { getContacts, getFilter } from '../../redux/contacts/selectors';
-import { DeleteButton, List, ListItem, P } from './Contact.styled';
+import { List, ListItem, P } from './Contact.styled';
 import { Loader, ButtonLoader } from 'components/Loader/Loader';
 import { Button } from '@mui/material';
 
