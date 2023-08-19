@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Notiflix from 'notiflix';
 import { addContact } from '../../redux/operations';
 import { getContacts } from '../../redux/contacts/selectors';
-import { FormBody, Label, Input, AddContactBtn } from './Form.styled';
+import { FormBody, Label } from './Form.styled';
 import { ButtonLoader } from 'components/Loader/Loader';
 import { TextField, Button } from '@mui/material';
 // import LoadingButton from '@mui/lab/LoadingButton';
