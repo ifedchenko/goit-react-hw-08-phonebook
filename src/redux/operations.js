@@ -30,8 +30,9 @@ export const logIn = createAsyncThunk('auth/login', async (user, thunkAPI) => {
     const res = await axios.post('/users/login', user);
     setAuthHeader(res.data.token);
     const userName = res.data.user.name;
-    // console.log(`Welcome back, ${userName}`);
     Notiflix.Notify.success(`Welcome back, ${userName}`);
+    // <Alert severity="success">`Welcome back, ${userName}`</Alert>;
+
     return res.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);

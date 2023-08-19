@@ -5,6 +5,7 @@ import { deleteContact, fetchContacts } from '../../redux/operations';
 import { getContacts, getFilter } from '../../redux/contacts/selectors';
 import { DeleteButton, List, ListItem, P } from './Contact.styled';
 import { Loader, ButtonLoader } from 'components/Loader/Loader';
+import { Button } from '@mui/material';
 
 const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -53,7 +54,7 @@ const Contact = () => {
               <ListItem key={id}>
                 <P>
                   {name}: {number}
-                  <DeleteButton
+                  {/* <DeleteButton
                     type="button"
                     onClick={() => handleDeleteContact(id)}
                   >
@@ -62,7 +63,19 @@ const Contact = () => {
                     ) : (
                       'Delete'
                     )}
-                  </DeleteButton>
+                  </DeleteButton> */}
+                  <Button
+                    variant="contained"
+                    type="button"
+                    onClick={() => handleDeleteContact(id)}
+                    size="small"
+                  >
+                    {isLoading[id] ? (
+                      <ButtonLoader height="22.75" width="22.75" />
+                    ) : (
+                      'Delete'
+                    )}
+                  </Button>
                 </P>
               </ListItem>
             ))}

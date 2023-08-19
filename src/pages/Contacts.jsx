@@ -10,7 +10,7 @@ export default function Contacts() {
   return (
     <>
       <Helmet>
-        <title>Your contcts</title>
+        <title>Your contacts</title>
       </Helmet>
       <Form />
       <Filter />

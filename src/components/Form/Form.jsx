@@ -5,6 +5,8 @@ import { addContact } from '../../redux/operations';
 import { getContacts } from '../../redux/contacts/selectors';
 import { FormBody, Label, Input, AddContactBtn } from './Form.styled';
 import { ButtonLoader } from 'components/Loader/Loader';
+import { TextField, Button } from '@mui/material';
+// import LoadingButton from '@mui/lab/LoadingButton';
 
 const Form = () => {
   const [name, setName] = useState('');
@@ -57,8 +59,19 @@ const Form = () => {
   return (
     <FormBody onSubmit={handleSubmit}>
       <Label>
-        Name
-        <Input
+        {/* Name */}
+        {/* <Input
+          type="text"
+          name="name"
+          value={name}
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          required  
+          onChange={onInputChange}
+        /> */}
+        <TextField
+          id="name"
+          label="Name"
+          variant="outlined"
           type="text"
           name="name"
           value={name}
@@ -69,8 +82,18 @@ const Form = () => {
       </Label>
 
       <Label>
-        Number
+        {/* Number
         <Input
+          type="tel"
+          name="number"
+          value={number}
+          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          required
+          onChange={onInputChange}
+        /> */}
+        <TextField
+          id="tel"
+          label="Phone number"
           type="tel"
           name="number"
           value={number}
@@ -79,9 +102,17 @@ const Form = () => {
           onChange={onInputChange}
         />
       </Label>
-      <AddContactBtn type="submit">
+      {/* <AddContactBtn
+        type="submit">
         {isLoading ? <ButtonLoader height="18" width="18" /> : 'Add contact'}
-      </AddContactBtn>
+      </AddContactBtn> */}
+      <Button variant="contained" type="submit">
+        {isLoading ? (
+          <ButtonLoader height="24.5" width="24.5" />
+        ) : (
+          'Add contact'
+        )}
+      </Button>
     </FormBody>
   );
 };

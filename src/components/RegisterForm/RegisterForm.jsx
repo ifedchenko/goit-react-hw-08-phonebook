@@ -1,47 +1,64 @@
 import { useDispatch } from 'react-redux';
+import { Button, TextField } from '@mui/material';
 import { register } from 'redux/operations';
 import css from './RegisterForm.module.css';
-// import Notiflix from 'notiflix';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    const form = evt.currentTarget;
+    const form = evt.target;
 
-    dispatch(
-      register({
-        name: form.elements.name.value,
-        email: form.elements.email.value,
-        password: form.elements.password.value,
-      })
-    );
-    // .then(() => {
-    //   Notiflix.Notify.success(`Thank you "${name}" for registration`);
-    //   form.reset();
-    // })
-    // .catch(error => {
-    //   console.log('Error:', error);
-    //   Notiflix.Notify.failure('Contact could not be added');
-    // });
+    if (evt.currentTarget) {
+      dispatch(
+        register({
+          name: form.elements.name.value,
+          email: form.elements.email.value,
+          password: form.elements.password.value,
+        })
+      );
+    }
   };
 
   return (
     <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
       <label className={css.label}>
-        Username
-        <input type="text" name="name" />
+        {/* <input type="text" name="name" /> */}
+        <TextField
+          id="Username"
+          label="Username"
+          variant="outlined"
+          type="text"
+          name="name"
+        />
       </label>
       <label className={css.label}>
-        Email
-        <input type="email" name="email" />
+        {/* <input type="email" name="email" /> */}
+        <TextField
+          id="email"
+          label="Email"
+          variant="outlined"
+          type="text"
+          name="email"
+        />
       </label>
       <label className={css.label}>
-        Password
-        <input type="password" name="password" />
+        {/* <input type="password" name="password" /> */}
+        <TextField
+          id="password"
+          label="Password"
+          variant="outlined"
+          type="password"
+          name="password"
+        />
       </label>
-      <button type="submit">Register</button>
+      {/* <button type="submit">Register</button> */}
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <Button type="submit" variant="outlined">
+          Register
+        </Button>
+      </div>
     </form>
   );
 };

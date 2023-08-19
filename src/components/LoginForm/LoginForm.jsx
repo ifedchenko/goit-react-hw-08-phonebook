@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import { Button, TextField } from '@mui/material';
 import { logIn } from 'redux/operations';
 import css from './LoginForm.module.css';
 
@@ -20,14 +21,33 @@ export const LoginForm = () => {
   return (
     <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
       <label className={css.label}>
-        Email
-        <input type="email" name="email" />
+        {/* Email */}
+        {/* <input type="email" name="email" /> */}
+        <TextField
+          id="email"
+          label="Email"
+          variant="outlined"
+          type="text"
+          name="email"
+        />
       </label>
       <label className={css.label}>
-        Password
-        <input type="password" name="password" />
+        {/* Password
+        <input type="password" name="password" /> */}
+        <TextField
+          id="password"
+          label="Password"
+          variant="outlined"
+          type="password"
+          name="password"
+        />
       </label>
-      <button type="submit">Log In</button>
+      {/* <button type="submit">Log In</button> */}
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <Button type="submit" variant="outlined">
+          Log In
+        </Button>
+      </div>
     </form>
   );
 };

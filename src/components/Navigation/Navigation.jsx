@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { Button } from '@mui/material';
 import { useAuth } from '../../hooks/useAuth';
 import css from './Navigation.module.css';
 
@@ -8,11 +9,11 @@ export const Navigation = () => {
   return (
     <nav>
       <NavLink className={css.link} to="/">
-        Home
+        <Button variant="contained">Home</Button>
       </NavLink>
       {isLoggedIn && (
         <NavLink className={css.link} to="/contacts">
-          Contacts
+          <Button variant="contained">Contacts</Button>
         </NavLink>
       )}
     </nav>
