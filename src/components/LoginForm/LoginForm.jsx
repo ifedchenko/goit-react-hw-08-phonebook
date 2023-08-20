@@ -29,6 +29,7 @@ export const LoginForm = () => {
           variant="outlined"
           type="text"
           name="email"
+          required
         />
       </label>
       <label className={css.label}>
@@ -40,6 +41,7 @@ export const LoginForm = () => {
           variant="outlined"
           type="password"
           name="password"
+          required
         />
       </label>
       {/* <button type="submit">Log In</button> */}

@@ -26,6 +26,7 @@ export const RegisterForm = () => {
       <label className={css.label}>
         {/* <input type="text" name="name" /> */}
         <TextField
+          required
           id="Username"
           label="Username"
           variant="outlined"
@@ -41,6 +42,7 @@ export const RegisterForm = () => {
           variant="outlined"
           type="text"
           name="email"
+          required
         />
       </label>
       <label className={css.label}>
@@ -51,6 +53,7 @@ export const RegisterForm = () => {
           variant="outlined"
           type="password"
           name="password"
+          required
         />
       </label>
       {/* <button type="submit">Register</button> */}
