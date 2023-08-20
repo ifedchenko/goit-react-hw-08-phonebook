@@ -33,7 +33,7 @@ export const logIn = createAsyncThunk('auth/login', async (user, thunkAPI) => {
     Notiflix.Notify.init({
       width: '200px',
       position: 'center-top',
-      closeButton: true,
+      closeButton: false,
     });
     Notiflix.Notify.success(`Welcome back, ${userName}`);
 
