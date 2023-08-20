@@ -31,7 +31,7 @@ const Contact = () => {
     dispatch(deleteContact(id))
       .then(() => {
         setIsLoading(prevState => ({ ...prevState, [id]: false }));
-        Notiflix.Notify.success('Contact deleted');
+        Notiflix.Notify.info('Contact deleted');
       })
       .catch(error => {
         setIsLoading(prevState => ({ ...prevState, [id]: false }));
@@ -45,16 +45,18 @@ const Contact = () => {
       {isPageDidMount ? (
         <Loader height="80" width="80" />
       ) : (
-        <List>
-          {contacts
-            .filter(contact =>
-              contact.name.toLowerCase().includes(filter.toLowerCase())
-            )
-            .map(({ id, name, number }) => (
-              <ListItem key={id}>
-                <P>
-                  {name}: {number}
-                  {/* <DeleteButton
+        <>
+          {contacts.length !== 0 && (
+            <List>
+              {contacts
+                .filter(contact =>
+                  contact.name.toLowerCase().includes(filter.toLowerCase())
+                )
+                .map(({ id, name, number }) => (
+                  <ListItem key={id}>
+                    <P>
+                      {name}: {number}
+                      {/* <DeleteButton
                     type="button"
                     onClick={() => handleDeleteContact(id)}
                   >
@@ -64,22 +66,24 @@ const Contact = () => {
                       'Delete'
                     )}
                   </DeleteButton> */}
-                  <Button
-                    variant="contained"
-                    type="button"
-                    onClick={() => handleDeleteContact(id)}
-                    size="small"
-                  >
-                    {isLoading[id] ? (
-                      <ButtonLoader height="22.75" width="22.75" />
-                    ) : (
-                      'Delete'
-                    )}
-                  </Button>
-                </P>
-              </ListItem>
-            ))}
-        </List>
+                      <Button
+                        variant="contained"
+                        type="button"
+                        onClick={() => handleDeleteContact(id)}
+                        size="small"
+                      >
+                        {isLoading[id] ? (
+                          <ButtonLoader height="22.75" width="22.75" />
+                        ) : (
+                          'Delete'
+                        )}
+                      </Button>
+                    </P>
+                  </ListItem>
+                ))}
+            </List>
+          )}
+        </>
       )}
     </>
   );
