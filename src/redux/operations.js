@@ -30,10 +30,20 @@ export const logIn = createAsyncThunk('auth/login', async (user, thunkAPI) => {
     const res = await axios.post('/users/login', user);
     setAuthHeader(res.data.token);
     const userName = res.data.user.name;
+    Notiflix.Notify.init({
+      width: '200px',
+      position: 'center-top',
+      closeButton: true,
+    });
     Notiflix.Notify.success(`Welcome back, ${userName}`);
 
     return res.data;
   } catch (error) {
+    Notiflix.Notify.init({
+      width: '320px',
+      position: 'center-center',
+      closeButton: false,
+    });
     Notiflix.Notify.failure('User not found');
     return thunkAPI.rejectWithValue(error.message);
   }
