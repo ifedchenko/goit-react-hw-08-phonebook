@@ -31,10 +31,10 @@ export const logIn = createAsyncThunk('auth/login', async (user, thunkAPI) => {
     setAuthHeader(res.data.token);
     const userName = res.data.user.name;
     Notiflix.Notify.success(`Welcome back, ${userName}`);
-    // <Alert severity="success">`Welcome back, ${userName}`</Alert>;
 
     return res.data;
   } catch (error) {
+    Notiflix.Notify.failure('User not found');
     return thunkAPI.rejectWithValue(error.message);
   }
 });
