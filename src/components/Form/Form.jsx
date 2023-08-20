@@ -26,6 +26,11 @@ const Form = () => {
       // const id = nanoid();
       dispatch(addContact({ name, number }))
         .then(() => {
+          Notiflix.Notify.init({
+            width: '200px',
+            position: 'center-top',
+            closeButton: false,
+          });
           Notiflix.Notify.success(`You added contact with name "${name}"`);
           setName('');
           setNumber('');
