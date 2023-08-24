@@ -20,6 +20,12 @@ export const register = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      Notiflix.Notify.init({
+        width: '320px',
+        position: 'center-top',
+        closeButton: false,
+      });
+      Notiflix.Notify.failure('User already registered');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
